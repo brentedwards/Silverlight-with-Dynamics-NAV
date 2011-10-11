@@ -1,8 +1,11 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             x:Class="NAV.Silverlight.App"
-             >
-    <Application.Resources>
-        
-    </Application.Resources>
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:vm="clr-namespace:NAV.Core.ViewModels;assembly=NAV.Core"
+						 x:Class="NAV.Silverlight.App"
+						 >
+		<Application.Resources>
+		<ResourceDictionary>
+			<vm:ViewModelLocator x:Key="Locator" />
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>
