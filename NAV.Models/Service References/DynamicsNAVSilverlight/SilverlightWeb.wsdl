@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="GetConfiguration">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="xmlData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetConfiguration_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="xmlData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ValidateLoginCredentials">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="domain" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="securePassword" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ValidateLoginCredentials_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomerList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="xmlData" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="xmlFilters" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomerList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="xmlData" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="xmlFilters" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SaveCustomer">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="xmlData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SaveCustomer_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reportID" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="classicReport" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="GetConfiguration">
+    <part name="parameters" element="tns:GetConfiguration" />
+  </message>
+  <message name="GetConfiguration_Result">
+    <part name="parameters" element="tns:GetConfiguration_Result" />
+  </message>
+  <message name="ValidateLoginCredentials">
+    <part name="parameters" element="tns:ValidateLoginCredentials" />
+  </message>
+  <message name="ValidateLoginCredentials_Result">
+    <part name="parameters" element="tns:ValidateLoginCredentials_Result" />
+  </message>
+  <message name="GetCustomerList">
+    <part name="parameters" element="tns:GetCustomerList" />
+  </message>
+  <message name="GetCustomerList_Result">
+    <part name="parameters" element="tns:GetCustomerList_Result" />
+  </message>
+  <message name="SaveCustomer">
+    <part name="parameters" element="tns:SaveCustomer" />
+  </message>
+  <message name="SaveCustomer_Result">
+    <part name="parameters" element="tns:SaveCustomer_Result" />
+  </message>
+  <message name="GetReport">
+    <part name="parameters" element="tns:GetReport" />
+  </message>
+  <message name="GetReport_Result">
+    <part name="parameters" element="tns:GetReport_Result" />
+  </message>
+  <portType name="SilverlightWeb_Port">
+    <operation name="GetConfiguration">
+      <input name="GetConfiguration" message="tns:GetConfiguration" />
+      <output name="GetConfiguration_Result" message="tns:GetConfiguration_Result" />
+    </operation>
+    <operation name="ValidateLoginCredentials">
+      <input name="ValidateLoginCredentials" message="tns:ValidateLoginCredentials" />
+      <output name="ValidateLoginCredentials_Result" message="tns:ValidateLoginCredentials_Result" />
+    </operation>
+    <operation name="GetCustomerList">
+      <input name="GetCustomerList" message="tns:GetCustomerList" />
+      <output name="GetCustomerList_Result" message="tns:GetCustomerList_Result" />
+    </operation>
+    <operation name="SaveCustomer">
+      <input name="SaveCustomer" message="tns:SaveCustomer" />
+      <output name="SaveCustomer_Result" message="tns:SaveCustomer_Result" />
+    </operation>
+    <operation name="GetReport">
+      <input name="GetReport" message="tns:GetReport" />
+      <output name="GetReport_Result" message="tns:GetReport_Result" />
+    </operation>
+  </portType>
+  <binding name="SilverlightWeb_Binding" type="tns:SilverlightWeb_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="GetConfiguration">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb:GetConfiguration" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetConfiguration">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetConfiguration_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ValidateLoginCredentials">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb:ValidateLoginCredentials" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ValidateLoginCredentials">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ValidateLoginCredentials_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCustomerList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb:GetCustomerList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCustomerList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCustomerList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SaveCustomer">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb:SaveCustomer" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SaveCustomer">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SaveCustomer_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/SilverlightWeb:GetReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SilverlightWeb">
+    <port name="SilverlightWeb_Port" binding="tns:SilverlightWeb_Binding">
+      <address location="http://symdev:7047/DynamicsNAV/WS/ReplaceWithAPercentEncodedCompanyName/Codeunit/SilverlightWeb" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
