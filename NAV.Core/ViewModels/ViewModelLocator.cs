@@ -20,6 +20,21 @@ namespace NAV.Core.ViewModels
 			}
 		}
 
+		public MainViewModel Main
+		{
+			get
+			{
+				if (IsInDesignMode)
+				{
+					return new MainViewModel();
+				}
+				else
+				{
+					return Ioc.Container.Resolve<MainViewModel>();
+				}
+			}
+		}
+
 		private bool IsInDesignMode
 		{
 			get { return DesignerProperties.IsInDesignTool; }

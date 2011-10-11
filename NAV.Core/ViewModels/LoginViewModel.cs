@@ -65,7 +65,7 @@ namespace NAV.Core.ViewModels
 					}
 					else
 					{
-						Shell.Instance.ShowError("There was an error logging in.", "Error");
+						Bxf.Shell.Instance.ShowError("There was an error logging in.", "Error");
 					}
 				});
 		}

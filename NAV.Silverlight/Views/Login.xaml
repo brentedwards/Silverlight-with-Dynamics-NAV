@@ -12,7 +12,7 @@
 	<UserControl.DataContext>
 		<Binding Path="Login" Source="{StaticResource Locator}"/>
 	</UserControl.DataContext>
-    <Border BorderBrush="#FFE6E2D8" BorderThickness="1" Padding="10" CornerRadius="5" Background="#FFE6E2D8">
+    <Border BorderBrush="#FFE6E2D8" BorderThickness="1" Padding="10" CornerRadius="5" Background="#FFE6E2D8" HorizontalAlignment="Center" VerticalAlignment="Center">
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition/>
