@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Castle.Windsor;
+using Castle.MicroKernel.Registration;
 
 namespace NAV.Silverlight
 {
@@ -16,7 +17,11 @@ namespace NAV.Silverlight
 	{
 		public static void RegisterComponents(IWindsorContainer container)
 		{
-
+			container
+				.Register(AllTypes
+							.FromAssembly(typeof(NAV.Models.Repositories.RepositoryMarker).Assembly)
+							.BasedOn<NAV.Models.Repositories.IRepository>()
+							.WithService.FirstInterface());
 		}
 	}
 }

@@ -104,6 +104,20 @@
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NAV.Core.IOC\NAV.Core.IOC.csproj">
+      <Project>{6837C7ED-F76F-4504-A8FD-A5C6843FC330}</Project>
+      <Name>NAV.Core.IOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAV.Core\NAV.Core.csproj">
+      <Project>{D8D9FD32-7118-4EC4-AAC1-F61C980A597C}</Project>
+      <Name>NAV.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAV.Models\NAV.Models.csproj">
+      <Project>{C8449137-26C7-4989-8073-BAC3ABE22B5C}</Project>
+      <Name>NAV.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

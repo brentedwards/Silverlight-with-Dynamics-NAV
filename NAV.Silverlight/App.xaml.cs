@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using NAV.Core.IOC;
 
 namespace NAV.Silverlight
 {
@@ -26,6 +27,8 @@ namespace NAV.Silverlight
 
 		private void Application_Startup(object sender, StartupEventArgs e)
 		{
+			ComponentHelper.RegisterComponents(Ioc.Container);
+
 			this.RootVisual = new MainPage();
 		}
 

@@ -68,7 +68,9 @@
     <Compile Include="LoginCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Constants.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RepositoryMarker.cs" />
     <Compile Include="Service References\DynamicsNAVSilverlight\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +122,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NAV.Core.IOC\NAV.Core.IOC.csproj">
+      <Project>{6837C7ED-F76F-4504-A8FD-A5C6843FC330}</Project>
+      <Name>NAV.Core.IOC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
