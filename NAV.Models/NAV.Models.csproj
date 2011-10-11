@@ -68,6 +68,7 @@
     <Compile Include="LoginCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Constants.cs" />
+    <Compile Include="Repositories\ILoginRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RepositoryMarker.cs" />

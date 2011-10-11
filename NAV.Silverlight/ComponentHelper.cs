@@ -21,7 +21,14 @@ namespace NAV.Silverlight
 				.Register(AllTypes
 							.FromAssembly(typeof(NAV.Models.Repositories.RepositoryMarker).Assembly)
 							.BasedOn<NAV.Models.Repositories.IRepository>()
-							.WithService.FirstInterface());
+							.WithService.FirstInterface())
+
+				.Register(AllTypes
+							.FromAssembly(typeof(NAV.Core.ViewModels.ViewModelBase).Assembly)
+							.BasedOn<NAV.Core.ViewModels.ViewModelBase>()
+							.Configure(component => component
+														.Named(component.ServiceType.FullName.ToLowerInvariant())
+														.LifeStyle.Transient));
 		}
 	}
 }
