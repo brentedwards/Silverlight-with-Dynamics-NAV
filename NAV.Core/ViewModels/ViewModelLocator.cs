@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using NAV.Core.IOC;
+using NAV.Models;
 
 namespace NAV.Core.ViewModels
 {
@@ -31,6 +32,36 @@ namespace NAV.Core.ViewModels
 				else
 				{
 					return Ioc.Container.Resolve<MainViewModel>();
+				}
+			}
+		}
+
+		public CustomersViewModel Customers
+		{
+			get
+			{
+				if (IsInDesignMode)
+				{
+					return new CustomersViewModel(null);
+				}
+				else
+				{
+					return Ioc.Container.Resolve<CustomersViewModel>();
+				}
+			}
+		}
+
+		public Customer CustomerDetail
+		{
+			get
+			{
+				if (IsInDesignMode)
+				{
+					return new Customer();
+				}
+				else
+				{
+					return null;
 				}
 			}
 		}

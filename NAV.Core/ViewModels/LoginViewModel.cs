@@ -16,12 +16,12 @@ namespace NAV.Core.ViewModels
 {
 	public sealed class LoginViewModel : ViewModelBase
 	{
-		private ILoginRepository LoginRepository { get; set; }
-
 		public LoginViewModel(ILoginRepository loginRepository)
 		{
 			LoginRepository = loginRepository;
 		}
+
+		private ILoginRepository LoginRepository { get; set; }
 
 		private string _userName;
 		public string UserName
@@ -60,7 +60,7 @@ namespace NAV.Core.ViewModels
 						DidLoginFail = result;
 						if (!DidLoginFail)
 						{
-							// Show the next view.
+							Bxf.Shell.Instance.ShowView("/Views/Customers.xaml", null, null, null);
 						}
 					}
 					else

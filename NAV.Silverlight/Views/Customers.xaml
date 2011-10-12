@@ -1,0 +1,27 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:NAV.Silverlight" x:Class="NAV.Silverlight.Customers"
+             mc:Ignorable="d"
+             >
+	<UserControl.Resources>
+		<DataTemplate x:Key="CustomerItemTemplate">
+			<Grid>
+				<TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{Binding Name}" d:LayoutOverrides="Width, Height"/>
+			</Grid>
+		</DataTemplate>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Path="Customers" Source="{StaticResource Locator}"/>
+	</UserControl.DataContext>
+    <Grid>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="Auto"/>
+    		<ColumnDefinition/>
+    	</Grid.ColumnDefinitions>
+    	<ListBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" ItemTemplate="{StaticResource CustomerItemTemplate}"/>
+    	<local:CustomerDetail Margin="0" Grid.Column="1" DataContext="{Binding SelectedCustomer, Mode=TwoWay}"/>
+    </Grid>
+</UserControl>

@@ -8,13 +8,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace NAV.Models.Repositories
 {
-	public class Constants
+	public interface ICustomerRepository
 	{
-		public const string BASE_URL = "http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/Services";
-
-		public const string NAMESPACE_CUSTOMER = "http://silverlight.digitalmajik.com/GetCustomerList";
+		void LoadCustomersAsync(Action<IEnumerable<Customer>, Exception> callback);
 	}
 }
