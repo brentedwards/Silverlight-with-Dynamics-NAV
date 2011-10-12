@@ -28,9 +28,9 @@
 			</Grid.ColumnDefinitions>
 			<TextBlock TextWrapping="Wrap" Text="Log In" d:LayoutOverrides="Width, Height" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,10" FontSize="16"/>
 			<TextBlock TextWrapping="Wrap" Text="User Name:" d:LayoutOverrides="Width, Height" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,10"/>
-			<TextBox x:Name="UserName" TextWrapping="Wrap" Text="{Binding UserName, Mode=TwoWay}" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+			<TextBox x:Name="UserName" TextWrapping="Wrap" Text="{Binding UserName, Mode=TwoWay}" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" IsEnabled="{Binding IsLoading, Converter={StaticResource NotConverter}}"/>
 			<TextBlock Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Password:"/>
-			<PasswordBox x:Name="Password" d:LayoutOverrides="Height" Grid.Row="2" Grid.Column="1"/>
+			<PasswordBox x:Name="Password" d:LayoutOverrides="Height" Grid.Row="2" Grid.Column="1" IsEnabled="{Binding IsLoading, Converter={StaticResource NotConverter}}"/>
 			<TextBlock Margin="0,10,0,0" TextWrapping="Wrap" Text="Login failed. Please try again." d:LayoutOverrides="Width, Height" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="Red" Visibility="{Binding DidLoginFail, Converter={StaticResource VisibilityConverter}, Mode=TwoWay}"/>
 			<Button x:Name="button" Content="Log In" Margin="0,10,0,0" d:LayoutOverrides="Height" Grid.Row="4" Grid.ColumnSpan="2" IsEnabled="{Binding IsLoading, Converter={StaticResource NotConverter}, Mode=TwoWay}"/>
 			<bxf:TriggerAction Height="Auto" Margin="0,0,-34,-10" Grid.RowSpan="4" Width="Auto" TargetControl="{Binding ElementName=button}" MethodName="Login" MethodParameter="{Binding Password, ElementName=Password}"/>

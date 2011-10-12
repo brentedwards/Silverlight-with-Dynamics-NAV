@@ -21,6 +21,7 @@ namespace NAV.Core.ViewModels
 		{
 			CustomerRepository = customerRepository;
 
+			Status = "Loading Customers";
 			IsLoading = true;
 			CustomerRepository.LoadCustomersAsync((customers, ex) =>
 				{
@@ -59,6 +60,38 @@ namespace NAV.Core.ViewModels
 			{
 				_selectedCustomer = value;
 				NotifyPropertyChanged("SelectedCustomer");
+			}
+		}
+
+		private string _status;
+		public string Status
+		{
+			get { return _status; }
+			set
+			{
+				_status = value;
+				NotifyPropertyChanged("Status");
+			}
+		}
+
+		public void Save()
+		{
+			if (SelectedCustomer != null)
+			{
+				Status = "Saving Customer";
+				IsLoading = true;
+				CustomerRepository.SaveCustomer(SelectedCustomer, (result, ex) =>
+					{
+						IsLoading = false;
+						if (result)
+						{
+							Bxf.Shell.Instance.ShowStatus(new Bxf.Status() { Text = "Customer Saved!" });
+						}
+						else
+						{
+							Bxf.Shell.Instance.ShowError("Error saving Customer", "Error");
+						}
+					});
 			}
 		}
 	}

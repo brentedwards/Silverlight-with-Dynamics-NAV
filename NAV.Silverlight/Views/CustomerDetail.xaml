@@ -1,8 +1,9 @@
-﻿<UserControl x:Class="NAV.Silverlight.CustomerDetail"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:bxf="http://schemas.lhotka.net/1.0.0/bxf" x:Class="NAV.Silverlight.CustomerDetail"
              mc:Ignorable="d"
              DataContext="{Binding CustomerDetail}">
 	<UserControl.Resources>
@@ -10,7 +11,7 @@
 			<Grid d:DesignWidth="291" d:DesignHeight="131">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="100"/>
-					<ColumnDefinition/>
+					<ColumnDefinition Width="300"/>
 				</Grid.ColumnDefinitions>
 				<TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{Binding Caption}" d:LayoutOverrides="Width, Height"/>
 				<TextBox TextWrapping="Wrap" Text="{Binding Value, Mode=TwoWay}" d:LayoutOverrides="Width, Height" Grid.Column="1"/>
@@ -23,6 +24,7 @@
 			<Setter Property="Background" Value="Transparent"/>
 			<Setter Property="BorderThickness" Value="1"/>
 			<Setter Property="TabNavigation" Value="Local"/>
+			<Setter Property="IsTabStop" Value="False"/>
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="ListBoxItem">
@@ -54,6 +56,18 @@
 		</Style>
 	</UserControl.Resources>
     <Grid>
-    	<ListBox ItemsSource="{Binding Fields}" ItemTemplate="{StaticResource FieldItemTemplate}" ItemContainerStyle="{StaticResource FieldsContainerStyle}" HorizontalAlignment="Left" BorderThickness="0" Margin="10"/>
+    	<ListBox ItemsSource="{Binding Fields}" HorizontalAlignment="Left" BorderThickness="0" Margin="10" TabNavigation="Local">
+    		<ListBox.Resources>
+    			<Style TargetType="ContentControl">
+    				<Setter Property="IsTabStop" Value="false"/>
+    			</Style>
+    		</ListBox.Resources>
+    		<ListBox.ItemTemplate>
+    			<StaticResource ResourceKey="FieldItemTemplate"/>
+    		</ListBox.ItemTemplate>
+    		<ListBox.ItemContainerStyle>
+    			<StaticResource ResourceKey="FieldsContainerStyle"/>
+    		</ListBox.ItemContainerStyle>
+    	</ListBox>
     </Grid>
 </UserControl>

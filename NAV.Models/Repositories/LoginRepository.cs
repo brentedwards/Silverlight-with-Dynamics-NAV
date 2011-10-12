@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace NAV.Models.Repositories
 {
@@ -15,37 +16,49 @@ namespace NAV.Models.Repositories
 	{
 		public void LoginAsync(LoginCredentials credentials, Action<bool, Exception> callback)
 		{
-			callback(true, null); // TODO: Put this back when the services work.
-			//try
-			//{
-			//    var service = GetService();
+#if online
+			try
+			{
+				var service = GetService();
 
-			//    var domain = "SYMDEV";
-			//    var username = credentials.Username;
-			//    var parts = credentials.Username.Split('\\');
-			//    if (parts.Length == 2)
-			//    {
-			//        domain = parts[0];
-			//        username = parts[1];
-			//    }
+				var domain = "SYMDEV";
+				var username = credentials.Username;
+				var parts = credentials.Username.Split('\\');
+				if (parts.Length == 2)
+				{
+					domain = parts[0];
+					username = parts[1];
+				}
 
-			//    service.ValidateLoginCredentialsCompleted += (sender, args) =>
-			//        {
-			//            if (args.Error == null)
-			//            {
-			//                callback(args.Result.Equals("True", StringComparison.OrdinalIgnoreCase), null);
-			//            }
-			//            else
-			//            {
-			//                callback(false, args.Error);
-			//            }
-			//        };
-			//    service.ValidateLoginCredentialsAsync(domain, username, credentials.Password, string.Empty);
-			//}
-			//catch (Exception ex)
-			//{
-			//    callback(false, ex);
-			//}
+				service.ValidateLoginCredentialsCompleted += (sender, args) =>
+					{
+						if (args.Error == null)
+						{
+							callback(args.Result.Equals("True", StringComparison.OrdinalIgnoreCase), null);
+						}
+						else
+						{
+							callback(false, args.Error);
+						}
+					};
+				service.ValidateLoginCredentialsAsync(domain, username, credentials.Password, string.Empty);
+			}
+			catch (Exception ex)
+			{
+				callback(false, ex);
+			}
+#else
+			var worker = new BackgroundWorker();
+			worker.DoWork += (sender, e) =>
+				{
+					System.Threading.Thread.Sleep(2000);
+				};
+			worker.RunWorkerCompleted += (sender, e) =>
+				{
+					callback(true, null);
+				};
+			worker.RunWorkerAsync();
+#endif
 		}
 	}
 }

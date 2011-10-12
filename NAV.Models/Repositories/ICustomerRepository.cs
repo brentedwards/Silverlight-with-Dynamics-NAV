@@ -15,5 +15,6 @@ namespace NAV.Models.Repositories
 	public interface ICustomerRepository
 	{
 		void LoadCustomersAsync(Action<IEnumerable<Customer>, Exception> callback);
+		void SaveCustomer(Customer customer, Action<bool, Exception> callback);
 	}
 }
