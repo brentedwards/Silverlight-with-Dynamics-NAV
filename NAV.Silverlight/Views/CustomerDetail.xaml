@@ -9,7 +9,7 @@
 		<DataTemplate x:Key="FieldItemTemplate">
 			<Grid d:DesignWidth="291" d:DesignHeight="131">
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition/>
+					<ColumnDefinition Width="100"/>
 					<ColumnDefinition/>
 				</Grid.ColumnDefinitions>
 				<TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{Binding Caption}" d:LayoutOverrides="Width, Height"/>
@@ -46,7 +46,7 @@
 									<VisualState x:Name="Unfocused"/>
 								</VisualStateGroup>
 							</VisualStateManager.VisualStateGroups>
-							<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}"/>
+							<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"/>
 						</Grid>
 					</ControlTemplate>
 				</Setter.Value>
@@ -54,6 +54,6 @@
 		</Style>
 	</UserControl.Resources>
     <Grid>
-    	<ListBox ItemsSource="{Binding Fields}" ItemTemplate="{StaticResource FieldItemTemplate}" ItemContainerStyle="{StaticResource FieldsContainerStyle}"/>
+    	<ListBox ItemsSource="{Binding Fields}" ItemTemplate="{StaticResource FieldItemTemplate}" ItemContainerStyle="{StaticResource FieldsContainerStyle}" HorizontalAlignment="Left" BorderThickness="0" Margin="10"/>
     </Grid>
 </UserControl>

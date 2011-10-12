@@ -57,7 +57,7 @@ namespace NAV.Core.ViewModels
 					IsLoading = false;
 					if (ex == null)
 					{
-						DidLoginFail = result;
+						DidLoginFail = !result;
 						if (!DidLoginFail)
 						{
 							Bxf.Shell.Instance.ShowView("/Views/Customers.xaml", null, null, null);

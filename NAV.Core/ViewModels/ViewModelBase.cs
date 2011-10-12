@@ -17,7 +17,7 @@ namespace NAV.Core.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private bool _isLoading;
-		public bool IsLoading
+		public virtual bool IsLoading
 		{
 			get { return _isLoading; }
 			set

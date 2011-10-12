@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:NAV.Silverlight" x:Class="NAV.Silverlight.Customers"
-             mc:Ignorable="d"
+             xmlns:bxfc="http://schemas.lhotka.net/1.0.0/bxfc" xmlns:local="clr-namespace:NAV.Silverlight" x:Class="NAV.Silverlight.Customers"
+             mc:Ignorable="d" d:DesignWidth="464.667" d:DesignHeight="246.667"
              >
 	<UserControl.Resources>
+		<bxfc:VisibilityConverter x:Key="VisibilityConverter"/>
 		<DataTemplate x:Key="CustomerItemTemplate">
 			<Grid>
 				<TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{Binding Name}" d:LayoutOverrides="Width, Height"/>
@@ -23,5 +24,9 @@
     	</Grid.ColumnDefinitions>
     	<ListBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" ItemTemplate="{StaticResource CustomerItemTemplate}"/>
     	<local:CustomerDetail Margin="0" Grid.Column="1" DataContext="{Binding SelectedCustomer, Mode=TwoWay}"/>
+    	<Grid Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsLoading, Converter={StaticResource VisibilityConverter}, Mode=TwoWay}">
+    		<ProgressBar IsIndeterminate="{Binding IsLoading}"/>
+    		<TextBlock Margin="10" TextWrapping="Wrap" Text="Loading Customers" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+    	</Grid>
     </Grid>
 </UserControl>

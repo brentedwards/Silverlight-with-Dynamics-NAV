@@ -15,17 +15,19 @@ using System.Collections.Generic;
 
 namespace NAV.Core.ViewModels
 {
-	public sealed class CustomersViewModel : ViewModelBase
+	public class CustomersViewModel : ViewModelBase
 	{
 		public CustomersViewModel(ICustomerRepository customerRepository)
 		{
 			CustomerRepository = customerRepository;
 
+			IsLoading = true;
 			CustomerRepository.LoadCustomersAsync((customers, ex) =>
 				{
+					IsLoading = false;
 					if (ex == null)
 					{
-						Customers = Customers;
+						Customers = customers;
 					}
 					else
 					{

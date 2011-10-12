@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using NAV.Core.IOC;
 using NAV.Models;
+using NAV.Core.ViewModels.Design;
 
 namespace NAV.Core.ViewModels
 {
@@ -42,7 +43,7 @@ namespace NAV.Core.ViewModels
 			{
 				if (IsInDesignMode)
 				{
-					return new CustomersViewModel(null);
+					return new DesignCustomersViewModel();
 				}
 				else
 				{
