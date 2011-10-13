@@ -14,7 +14,7 @@ namespace NAV.Core.ViewModels.Design
 	public sealed class DesignCustomersViewModel : CustomersViewModel
 	{
 		public DesignCustomersViewModel()
-			: base(null)
+			: base(null, null)
 		{
 		}
 

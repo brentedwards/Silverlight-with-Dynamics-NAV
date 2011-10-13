@@ -12,6 +12,7 @@
       <element name="GetConfiguration_Result">
         <complexType>
           <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
             <element minOccurs="1" maxOccurs="1" name="xmlData" type="string" />
           </sequence>
         </complexType>
@@ -29,6 +30,7 @@
       <element name="ValidateLoginCredentials_Result">
         <complexType>
           <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
             <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
           </sequence>
         </complexType>
@@ -63,6 +65,7 @@
       <element name="SaveCustomer_Result">
         <complexType>
           <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
             <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
           </sequence>
         </complexType>
@@ -72,14 +75,16 @@
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
             <element minOccurs="1" maxOccurs="1" name="reportID" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="classicReport" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="reportURL" type="string" />
           </sequence>
         </complexType>
       </element>
       <element name="GetReport_Result">
         <complexType>
           <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
             <element minOccurs="1" maxOccurs="1" name="authToken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reportURL" type="string" />
           </sequence>
         </complexType>
       </element>

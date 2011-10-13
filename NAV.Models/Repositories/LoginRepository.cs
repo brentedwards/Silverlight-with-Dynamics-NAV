@@ -14,9 +14,9 @@ namespace NAV.Models.Repositories
 {
 	public sealed class LoginRepository : Repository, ILoginRepository, IRepository
 	{
-		public void LoginAsync(LoginCredentials credentials, Action<bool, Exception> callback)
+		public void LoginAsync(LoginCredentials credentials, Action<bool, string, Exception> callback)
 		{
-#if online
+#if ONLINE
 			try
 			{
 				var service = GetService();
@@ -34,18 +34,18 @@ namespace NAV.Models.Repositories
 					{
 						if (args.Error == null)
 						{
-							callback(args.Result.Equals("True", StringComparison.OrdinalIgnoreCase), null);
+							callback(args.Result, args.authToken, null);
 						}
 						else
 						{
-							callback(false, args.Error);
+							callback(false, null, args.Error);
 						}
 					};
 				service.ValidateLoginCredentialsAsync(domain, username, credentials.Password, string.Empty);
 			}
 			catch (Exception ex)
 			{
-				callback(false, ex);
+				callback(false, null, ex);
 			}
 #else
 			var worker = new BackgroundWorker();
@@ -55,7 +55,7 @@ namespace NAV.Models.Repositories
 				};
 			worker.RunWorkerCompleted += (sender, e) =>
 				{
-					callback(true, null);
+					callback(true, "blah", null);
 				};
 			worker.RunWorkerAsync();
 #endif

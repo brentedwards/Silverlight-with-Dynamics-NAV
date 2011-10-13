@@ -9,10 +9,10 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace NAV.Models.Repositories
+namespace NAV.Models
 {
-	public interface ILoginRepository
+	public sealed class UserMetaData
 	{
-		void LoginAsync(LoginCredentials credentials, Action<bool, string, Exception> callback);
+		public string AuthToken { get; set; }
 	}
 }

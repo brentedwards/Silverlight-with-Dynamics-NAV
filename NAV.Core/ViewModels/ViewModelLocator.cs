@@ -13,7 +13,7 @@ namespace NAV.Core.ViewModels
 			{
 				if (IsInDesignMode)
 				{
-					return new LoginViewModel(null);
+					return new LoginViewModel(null, null);
 				}
 				else
 				{

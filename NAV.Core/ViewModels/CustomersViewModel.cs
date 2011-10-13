@@ -17,13 +17,14 @@ namespace NAV.Core.ViewModels
 {
 	public class CustomersViewModel : ViewModelBase
 	{
-		public CustomersViewModel(ICustomerRepository customerRepository)
+		public CustomersViewModel(ICustomerRepository customerRepository, UserMetaData userMetaData)
 		{
 			CustomerRepository = customerRepository;
+			UserMetaData = userMetaData;
 
 			Status = "Loading Customers";
 			IsLoading = true;
-			CustomerRepository.LoadCustomersAsync((customers, ex) =>
+			CustomerRepository.LoadCustomersAsync(userMetaData.AuthToken, (customers, ex) =>
 				{
 					IsLoading = false;
 					if (ex == null)
@@ -38,6 +39,7 @@ namespace NAV.Core.ViewModels
 		}
 
 		private ICustomerRepository CustomerRepository { get; set; }
+		private UserMetaData UserMetaData { get; set; }
 
 		private IEnumerable<Customer> _customers;
 		public IEnumerable<Customer> Customers

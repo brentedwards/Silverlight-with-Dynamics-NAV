@@ -17,11 +17,11 @@ namespace NAV.Models.Repositories
 {
 	public sealed class CustomerRepository : Repository, ICustomerRepository, IRepository
 	{
-		public void LoadCustomersAsync(Action<IEnumerable<Customer>, Exception> callback)
+		public void LoadCustomersAsync(string authToken, Action<IEnumerable<Customer>, Exception> callback)
 		{
 			try
 			{
-#if online
+#if ONLINE
 				var service = GetService();
 				service.GetCustomerListCompleted += (sender, args) =>
 				    {
@@ -41,6 +41,7 @@ namespace NAV.Models.Repositories
 				            }
 				        }
 				    };
+				service.GetCustomerListAsync(authToken, string.Empty, string.Empty);
 #else
 				var worker = new BackgroundWorker();
 				worker.DoWork += (sender, e) =>
@@ -73,7 +74,7 @@ namespace NAV.Models.Repositories
 
 		public void SaveCustomer(Customer customer, Action<bool, Exception> callback)
 		{
-#if online
+#if ONLINE
 			try
 			{
 				var doc = ToXml(customer);

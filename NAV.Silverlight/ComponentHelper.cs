@@ -10,6 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Castle.Windsor;
 using Castle.MicroKernel.Registration;
+using NAV.Models;
 
 namespace NAV.Silverlight
 {
@@ -28,7 +29,10 @@ namespace NAV.Silverlight
 							.BasedOn<NAV.Core.ViewModels.ViewModelBase>()
 							.Configure(component => component
 														.Named(component.ServiceType.FullName.ToLowerInvariant())
-														.LifeStyle.Transient));
+														.LifeStyle.Transient))
+
+				.Register(Component.For<UserMetaData>()
+							.LifeStyle.Singleton);
 		}
 	}
 }
