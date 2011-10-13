@@ -20,7 +20,7 @@ namespace NAV.Silverlight
 		{
 			container
 				.Register(AllTypes
-							.FromAssembly(typeof(NAV.Models.Repositories.RepositoryMarker).Assembly)
+							.FromAssembly(typeof(NAV.Models.Repositories.Mock.RepositoryMarker).Assembly)
 							.BasedOn<NAV.Models.Repositories.IRepository>()
 							.WithService.FirstInterface())
 

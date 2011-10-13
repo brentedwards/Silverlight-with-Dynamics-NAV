@@ -9,21 +9,23 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ServiceModel;
-using NAV.Models.DynamicsNAVSilverlight;
+using NAV.Models.Repositories.WCF.WcfServices;
 
-namespace NAV.Models.Repositories
+namespace NAV.Models.Repositories.WCF
 {
-	public abstract class Repository
+	public sealed class WcfRepository
 	{
-		protected static SilverlightWeb_PortClient GetService()
+		private const string BASE_URL = "http://silverlight.digitalmajik.com:8123/DynamicsWCF/Services";
+
+		public static WCFServicesClient GetService()
 		{
 			BasicHttpBinding navWSBinding = new BasicHttpBinding();
 			navWSBinding.Security.Mode = BasicHttpSecurityMode.TransportCredentialOnly;
 			navWSBinding.MaxReceivedMessageSize = 2147483647;
 			navWSBinding.ReceiveTimeout = new TimeSpan(0, 0, 20, 0, 0);
 
-			var endpoint = new EndpointAddress(Constants.BASE_URL);
-			var webService = new SilverlightWeb_PortClient(navWSBinding, endpoint);
+			var endpoint = new EndpointAddress(BASE_URL);
+			var webService = new WCFServicesClient(navWSBinding, endpoint);
 			return webService;
 		}
 	}

@@ -15,10 +15,10 @@
         <client>
             <endpoint address="http://symdev:7047/DynamicsNAV/WS/ReplaceWithAPercentEncodedCompanyName/Codeunit/SilverlightWeb"
                 binding="basicHttpBinding" bindingConfiguration="SilverlightWeb_Binding"
-                contract="DynamicsNAVSilverlight.SilverlightWeb_Port" name="SilverlightWeb_Port" />
+                contract="NavServices.SilverlightWeb_Port" name="SilverlightWeb_Port" />
             <endpoint address="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/SystemService"
                 binding="basicHttpBinding" bindingConfiguration="SystemService_Binding"
-                contract="DynamicsNAVSilverlight.SystemService_Port" name="SystemService_Port" />
+                contract="NavServices.SystemService_Port" name="SystemService_Port" />
         </client>
     </system.serviceModel>
 </configuration>

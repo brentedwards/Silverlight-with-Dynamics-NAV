@@ -9,9 +9,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace NAV.Models.Repositories
+namespace NAV.Models.Repositories.NAV
 {
-	public class RepositoryMarker
+	public sealed class RepositoryMarker
 	{
 	}
 }

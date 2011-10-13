@@ -10,16 +10,15 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 
-namespace NAV.Models.Repositories
+namespace NAV.Models.Repositories.NAV
 {
-	public sealed class LoginRepository : Repository, ILoginRepository, IRepository
+	public sealed class NavLoginRepository : ILoginRepository, IRepository
 	{
 		public void LoginAsync(LoginCredentials credentials, Action<bool, string, Exception> callback)
 		{
-#if ONLINE
 			try
 			{
-				var service = GetService();
+				var service = NavRepository.GetService();
 
 				var domain = "SYMDEV";
 				var username = credentials.Username;
@@ -47,18 +46,6 @@ namespace NAV.Models.Repositories
 			{
 				callback(false, null, ex);
 			}
-#else
-			var worker = new BackgroundWorker();
-			worker.DoWork += (sender, e) =>
-				{
-					System.Threading.Thread.Sleep(2000);
-				};
-			worker.RunWorkerCompleted += (sender, e) =>
-				{
-					callback(true, "blah", null);
-				};
-			worker.RunWorkerAsync();
-#endif
 		}
 	}
 }

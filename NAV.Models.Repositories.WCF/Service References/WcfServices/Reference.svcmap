@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="75b01ceb-cbb5-41db-b699-19bab048a686" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e2bd12ee-ded1-4e40-a73d-d95d54f206d4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,12 +20,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/Services" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://silverlight.digitalmajik.com:8123/DynamicsWCF/Services" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SilverlightWeb.wsdl" MetadataType="Wsdl" ID="e32343f0-d4f7-4d9f-a18c-555b522de993" SourceId="1" SourceUrl="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/Codeunit/SilverlightWeb" />
-    <MetadataFile FileName="Services.disco" MetadataType="Disco" ID="faeb3336-8b00-4727-9154-7c3f261aa2f8" SourceId="1" SourceUrl="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/Services" />
-    <MetadataFile FileName="SystemService.wsdl" MetadataType="Wsdl" ID="4e0acf29-3307-465a-820f-6ab8747f824c" SourceId="1" SourceUrl="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/SystemService" />
+    <MetadataFile FileName="WCFServices.wsdl" MetadataType="Wsdl" ID="e37ddf36-6654-45a6-b7bd-c43bba666065" SourceId="1" SourceUrl="http://symdev:8123/DynamicsWCF/Services?wsdl" />
+    <MetadataFile FileName="Services.disco" MetadataType="Disco" ID="8da3feba-4c38-47ba-be6c-190d5b453086" SourceId="1" SourceUrl="http://symdev:8123/DynamicsWCF/Services?disco" />
+    <MetadataFile FileName="Services.xsd" MetadataType="Schema" ID="a6c70f93-f3b8-4247-b31d-c5c0e3c7f00d" SourceId="1" SourceUrl="http://symdev:8123/DynamicsWCF/Services?xsd=xsd1" />
+    <MetadataFile FileName="Services1.xsd" MetadataType="Schema" ID="52e68248-4982-459e-8cfa-ae6a9a320beb" SourceId="1" SourceUrl="http://symdev:8123/DynamicsWCF/Services?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

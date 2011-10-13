@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="gU9FljqhO3eatQFixKwuI5y1qr0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="87t26LwKm6saF40DUbdDknrtdKQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="SilverlightWeb_Binding">
       <properties>
@@ -221,7 +221,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="SilverlightWeb_Port" contract="DynamicsNAVSilverlight.SilverlightWeb_Port" bindingType="basicHttpBinding" address="http://symdev:7047/DynamicsNAV/WS/ReplaceWithAPercentEncodedCompanyName/Codeunit/SilverlightWeb" bindingConfiguration="SilverlightWeb_Binding">
+    <endpoint name="SilverlightWeb_Port" contract="NavServices.SilverlightWeb_Port" bindingType="basicHttpBinding" address="http://symdev:7047/DynamicsNAV/WS/ReplaceWithAPercentEncodedCompanyName/Codeunit/SilverlightWeb" bindingConfiguration="SilverlightWeb_Binding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://symdev:7047/DynamicsNAV/WS/ReplaceWithAPercentEncodedCompanyName/Codeunit/SilverlightWeb</serializedValue>
@@ -236,7 +236,7 @@
           <serializedValue>SilverlightWeb_Binding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DynamicsNAVSilverlight.SilverlightWeb_Port</serializedValue>
+          <serializedValue>NavServices.SilverlightWeb_Port</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -306,7 +306,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="SystemService_Port" contract="DynamicsNAVSilverlight.SystemService_Port" bindingType="basicHttpBinding" address="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/SystemService" bindingConfiguration="SystemService_Binding">
+    <endpoint name="SystemService_Port" contract="NavServices.SystemService_Port" bindingType="basicHttpBinding" address="http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/SystemService" bindingConfiguration="SystemService_Binding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/SystemService</serializedValue>
@@ -321,7 +321,7 @@
           <serializedValue>SystemService_Binding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DynamicsNAVSilverlight.SystemService_Port</serializedValue>
+          <serializedValue>NavServices.SystemService_Port</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

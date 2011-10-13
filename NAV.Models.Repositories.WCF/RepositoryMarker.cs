@@ -9,12 +9,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace NAV.Models.Repositories
+namespace NAV.Models.Repositories.WCF
 {
-	public class Constants
+	public sealed class RepositoryMarker
 	{
-		public const string BASE_URL = "http://silverlight.digitalmajik.com:7047/DynamicsNAV/WS/Services";
-
-		public const string NAMESPACE_CUSTOMER = "http://silverlight.digitalmajik.com/GetCustomerList";
 	}
 }

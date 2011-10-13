@@ -123,10 +123,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\NAV.Models\clientaccesspolicy.xml">
+    <Content Include="..\NAV.Models.Repositories.WCF\clientaccesspolicy.xml">
       <Link>clientaccesspolicy.xml</Link>
     </Content>
-    <Content Include="..\NAV.Models\ServiceReferences.ClientConfig">
+    <Content Include="..\NAV.Models.Repositories.WCF\ServiceReferences.ClientConfig">
       <Link>ServiceReferences.ClientConfig</Link>
     </Content>
     <None Include="packages.config" />
@@ -140,6 +140,18 @@
     <ProjectReference Include="..\NAV.Core\NAV.Core.csproj">
       <Project>{D8D9FD32-7118-4EC4-AAC1-F61C980A597C}</Project>
       <Name>NAV.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAV.Models.Repositories.Mock\NAV.Models.Repositories.Mock.csproj">
+      <Project>{AF307149-DA90-4F08-AA77-92FC23CC25B5}</Project>
+      <Name>NAV.Models.Repositories.Mock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAV.Models.Repositories.NAV\NAV.Models.Repositories.NAV.csproj">
+      <Project>{A634E2C2-1A6E-4A48-A4BE-F76559A4CDCF}</Project>
+      <Name>NAV.Models.Repositories.NAV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAV.Models.Repositories.WCF\NAV.Models.Repositories.WCF.csproj">
+      <Project>{707DBD94-7868-477E-ADFA-D009FE219537}</Project>
+      <Name>NAV.Models.Repositories.WCF</Name>
     </ProjectReference>
     <ProjectReference Include="..\NAV.Models\NAV.Models.csproj">
       <Project>{C8449137-26C7-4989-8073-BAC3ABE22B5C}</Project>
